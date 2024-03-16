@@ -1,36 +1,48 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_rev_int_tab.c                                   :+:      :+:    :+:   */
+/*   ft_sort_int_tab.c                                  :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: adepit <adepit@student.42.fr>              +#+  +:+       +#+        */
+/*   By: aymeric <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/03/15 23:15:42 by adepit            #+#    #+#             */
-/*   Updated: 2024/03/16 11:54:06 by aymeric          ###   ########.fr       */
+/*   Created: 2024/03/16 11:55:27 by aymeric           #+#    #+#             */
+/*   Updated: 2024/03/16 12:14:26 by aymeric          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <stdio.h>
 
-void	ft_rev_int_tab(int *tab, int size)
+void	swap(int *a, int *b)
 {
 	int	i;
-	int	element;
 
-	i = 0;
-	while (i < size / 2)
+	i = *a;
+	*a = *b;
+	*b = i;
+}
+
+void	ft_sort_int_tab(int *tab, int size)
+{
+	int	i;
+	int	j;
+
+	i = 1;
+	while (i < size)
 	{
-		element = tab[i];
-		tab[i] = tab[size - i - 1];
-		tab[size - i - 1] = element;
+		j = i;
+		while (j > 0 && *(tab + j - 1) > *(tab + j))
+		{
+			swap(tab + j, tab + j - 1);
+			j--;
+		}
 		i++;
 	}
 }
 
 int	main()
 {
-	int tab[5] = {0,1,2,3,4};
+	int tab[5] = {2,6,3,7,1};
 
-	ft_rev_int_tab(tab, 5);
+	ft_sort_int_tab(tab, 5);
 	printf("%d, %d, %d, %d, %d\n", tab[0], tab[1], tab[2], tab[3], tab[4]);
 }
