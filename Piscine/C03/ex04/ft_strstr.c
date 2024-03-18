@@ -6,7 +6,7 @@
 /*   By: aymeric <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/17 14:22:34 by aymeric           #+#    #+#             */
-/*   Updated: 2024/03/17 14:30:28 by aymeric          ###   ########.fr       */
+/*   Updated: 2024/03/18 11:42:23 by aymeric          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -38,9 +38,9 @@ char	*ft_strstr(char *str, char *to_find)
 
 int	main()
 {
-	char c = "Hello world, welcome to the universe";
-	char d = "welcome";
-	char result = strstr(c, d);
+	char *c = "Hello world, welcome to the universe";
+	char *d = "welcome";
+	char *result = ft_strstr(c, d);
 
-	printf("%ld\n", result);
+	printf("%s\n", result);
 }
