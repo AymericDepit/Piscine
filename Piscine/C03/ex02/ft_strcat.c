@@ -1,33 +1,40 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_strcmp.c                                        :+:      :+:    :+:   */
+/*   ft_strcat.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: aymeric <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/03/16 16:02:02 by aymeric           #+#    #+#             */
-/*   Updated: 2024/03/16 19:30:27 by aymeric          ###   ########.fr       */
+/*   Created: 2024/03/17 10:56:53 by aymeric           #+#    #+#             */
+/*   Updated: 2024/03/17 11:06:58 by aymeric          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <stdio.h>
 
-int	ft_strcmp(char *s1, char *s2)
+char	*ft_strcat(char *dest, char *src)
 {
 	int	i;
+	int	j;
 
 	i = 0;
-	while (s1[i] == s2[i] && *s1 != '\0')
+	j = 0;
+	while (dest[i] != '\0')
 		i++;
-	return (*s1 - *s2);
+	while (src[j] != '\0')
+	{
+		dest[i] = src[j];
+		i++;
+		j++;
+	}
+	dest[i] = '\0';
+	return (dest);
 }
 
 int	main()
 {
-	char	c[] = "Antoni";
-	char	d[] = "Antonin";
+	char c[] = "Antonin";
+	char d[] = " et Tom";
 
-	printf(" %d\n", ft_strcmp(c, d));
-
-	return 0;
+	printf("%s\n", ft_strcat(c, d));
 }
